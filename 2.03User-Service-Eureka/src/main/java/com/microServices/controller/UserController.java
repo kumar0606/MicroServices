@@ -1,5 +1,6 @@
 package com.microServices.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +15,16 @@ import com.microServices.entity.User;
 import com.microServices.service.UserService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("api/users")
-@AllArgsConstructor
+//@AllArgsConstructor
 public class UserController {
 
+	@Autowired
     private UserService userService;
 
+    static final String DEPT_SERVICE="myProjectAllRemoteCallsDEPARTMENT";
     @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user){
         User savedUser = userService.saveUser(user);
@@ -30,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    @CircuitBreaker(name = "myProjectAllRemoteCallsDEPARTMENT", fallbackMethod = "getAPIFallBack")
+    @CircuitBreaker(name = DEPT_SERVICE, fallbackMethod = "getAPIFallBack")
     public ResponseEntity<ResponseDto> getUser(@PathVariable("id") Long userId){
         ResponseDto responseDto = userService.getUser(userId);
         return ResponseEntity.ok(responseDto);
@@ -40,8 +42,9 @@ public class UserController {
     	ResponseDto responseDto = userService.getUser1(userId);
     	return ResponseEntity.ok(responseDto);
     }
-    public String  getAPIFallBack(String topicPage, Exception e){
-        
-        return "ERROR: USER DEPARTMENT SERVER IS DOWN!!!!!!!!...";
+    
+    
+    public ResponseEntity<ResponseDto>  getAPIFallBack(Exception e){
+        return new ResponseEntity("ERROR: USER DEPARTMENT SERVER IS DOWN!!!!!!!!...",HttpStatus.OK);
     }
 }

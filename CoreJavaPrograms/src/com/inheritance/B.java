@@ -1,5 +1,5 @@
 package com.inheritance;
 
-public class Inheritance {
+public class B extends A{
 
 }
