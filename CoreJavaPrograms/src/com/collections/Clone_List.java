@@ -16,10 +16,10 @@ public class Clone_List {
 		list.add("saturday");
 		list.add("sunday");
 		System.out.println("Befor cloneing"+list);
-//		ListIterator<String> itr = list.listIterator();
-//		while (itr.hasNext()) {
-//			System.out.println(itr.next());
-//		}
+		ListIterator<String> itr = list.listIterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+		}
 		ArrayList<String> clonelist=(ArrayList<String>) list.clone();
 		System.out.println("After Cloneing"+clonelist);
 	}

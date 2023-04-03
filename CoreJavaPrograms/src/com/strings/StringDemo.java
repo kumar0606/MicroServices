@@ -7,6 +7,7 @@ public static void main(String[] args) {
 	
 	//2
 	String s="abc";
+	System.out.println(s.substring(2));
 	StringBuffer sf=new StringBuffer(s);
 	System.out.println(s.equals(sf));
 	
@@ -18,6 +19,6 @@ public static void main(String[] args) {
 	String s4="abc";
 	String sn=new String("abc");
 	sn=sn.intern();
-	System.out.println(s4.equals(sn));
+	System.out.println(s4==sn);
 }
 }

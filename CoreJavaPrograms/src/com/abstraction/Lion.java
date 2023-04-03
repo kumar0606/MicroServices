@@ -8,7 +8,7 @@ public class Lion implements Animals{
 		
 	}
 	public static void main(String[] args) {
-		Animals l=new Lion();
+		Lion l=new Lion();
 		l.sound();
 	}
 

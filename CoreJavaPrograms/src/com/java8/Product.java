@@ -41,8 +41,9 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+	return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
+	
 
 	public static void main(String[] args) {
 		List<Product> po = new ArrayList<Product>();
@@ -53,5 +54,7 @@ public class Product {
 		po.stream().filter(product->product.getPrice()==40000.00)
 		.forEach(product->System.out.println(product.getName()));
 			}
+
+	
 
 }

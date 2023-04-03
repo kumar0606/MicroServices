@@ -30,15 +30,28 @@ public double getFee() {
 public void setFee(double fee) {
 	this.fee = fee;
 }
-@Override
-public String toString() {
-	return "Student [id=" + id + ", name=" + name + ", fee=" + fee + "]";
-}
+//@Override
+//public String toString() {
+//	return "Student [id=" + id + ", name=" + name + ", fee=" + fee + "]";
+//}
 public static void main(String[] args) {
 	ArrayList<Student> s=new ArrayList<>();
 	s.add(new Student(1, "ravi", 3000.00));
 	s.add(new Student(2, "mahesh", 4000.00));
 	s.add(new Student(3, "mani", 5000.00));
-	s.stream().filter(st->st.getFee()==5000).forEach(st->System.out.println(st.getName()));
+//	for (Student student : s) {
+//		System.out.println(student);
+//	}
+	
+//	for(int i=2; i<s.size();i++) {
+//		System.out.println(s.get(1));
+//	}
+	
+//	System.out.println(s.get(0));
+	
+//	s.stream().filter(st->st.getFee()==5000).forEach(st->System.out.println(st.getName()));
+	s.stream().filter(r->r.getId()==1).forEach(r->System.out.println(r.getName()));
+	
 }
+
 }

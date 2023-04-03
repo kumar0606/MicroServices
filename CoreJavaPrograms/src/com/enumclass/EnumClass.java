@@ -9,7 +9,6 @@ enum Enums{
 private int value;
 
 private Enums(int value) {
-	
 	this.value = value;
 }
 

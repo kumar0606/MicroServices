@@ -18,5 +18,11 @@ public static void main(String[] args) {
 	System.out.println(1+22+d+5+05);
 	String g=null;
 	System.out.println(g);
+	
+	StringTokenizer t=new StringTokenizer("kalavala from ravi");
+	while(t.hasMoreElements()) {
+		System.out.println(t.nextElement());
+	}
+	
 }
 }
